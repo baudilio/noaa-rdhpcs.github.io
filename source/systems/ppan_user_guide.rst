@@ -14,38 +14,54 @@ PPAN User Guide
 .. image:: /images/PPAN.png
    :scale: 75%
 
+Introduction
+============
 
-Post Processing and Analysis (PPAN) is a small cluster comprised of
-over 130 Dell servers located at the Geophysical Fluid Dynamics Laboratory
-(GFDL) in Princeton, NJ. These systems
-offer multiple petabytes of disk storage and access to nearly 200
-petabytes of archive storage. Various generations of
-Intel processors from Sandy Bridge to Ice Lake, and available
-ranges from 48-512GB of memory, are sufficient for most user
-post-processing demands. See :ref:`analysis-hosts` and
+The Post Processing and Analysis computer cluster (PPAN) is located at the
+Geophysical Fluid Dynamics Laboratory (GFDL) in Princeton, NJ. The
+system is composed of approximately 400 Dell servers of various
+generations of Intel processors, memory and local storage. The cluster
+comprises two logical groups of nodes: Analysis (AN) and
+Post-Processing (PP). See tables :ref:`analysis-hosts` and
 :ref:`postprocess-hosts` for specifics.
+
+The Post-Processing hosts access the file systems ``/archive`` and ``/work`` via
+NFS while the analysis hosts feature a high-performance (CXFS)
+interface them.
+
+VAST It provides a unified data platform for data-intensive
+applications and high-performance storage.
+
+See :ref:`ppan_diagram`.
 
 PPAN supports GFDL's science community by providing a place to analyze
 and interpret models generated on other HPC systems. This gives users a local
 system to experiment and evaluate with various degrees of control and
-validation of complex processes and tasks. PPAN is also a host to various
+validation of complex processes and tasks.
+
+
+PPAN is also a host to various
 software packages, including MATLAB and other complex combinations of
 Python & R libraries.
 
-The GFDL Post-processing and Analysis Cluster is called Pan, or PPAN. It
-contains approximately 20 analysis hosts for interactive use. The analysis
-hosts feature a high-performance (CXFS) interface to the big-data filesystems
-``/archive`` and ``/work``. A variety of data analysis software packages is
-available via the environment modules system.
+A variety of data analysis software packages is available via the
+environment modules system.
 
+.. code-block:: bash
+
+   $> module avail
+
+Slurm
 For batch use, Pan contains about 100 post-processing hosts with names like
 pp006 and pp317. The Slurm batch scheduler permits models running on Gaea to
 submit post-processing jobs to the GFDL cluster.
 
-This diagram represents the PPAN Data Network.
+.. _ppan_diagram:
 
-.. image:: /images/PPANdiag.png
+.. figure:: /images/PPANdiag.png
    :scale: 60%
+   :alt: Diagram of PPAN with the local network and storage system.
+
 
 Login to Analysis
 =================
